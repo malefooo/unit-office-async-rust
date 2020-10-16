@@ -1,0 +1,13 @@
+[mongo]
+    addr = "mongodb://localhost:27017"
+    database = "database"
+[mail]
+    host = "smtp.yeah.net"
+    port = 25
+    username = "malefo@yeah.net"
+    password = "LYIOTTSCEDLKAYWF"
+    encoding = "utf-8"
+    protocol = "smtp"
+[ip]
+    localhost = "localhost:9527"
+    remote = "10.14.99.7:8959"
