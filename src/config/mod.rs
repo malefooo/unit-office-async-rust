@@ -42,7 +42,7 @@ pub struct Mail{
 #[derive(Deserialize,Debug,Clone)]
 pub struct Ip{
     pub localhost:String,
-    pub remote:String
+    pub server:String
 }
 
 pub fn parsing_conf_toml() -> Config{
@@ -62,9 +62,14 @@ pub fn parsing_conf_toml() -> Config{
 
 pub async fn init_mongodb() -> Result<Client, CommonErrorEnum> {
     let mut op_config = CONF_INSTANCE.get().clone();
-    let mut config = op_config.take().unwrap();
-    let mut mongo = config.clone().mongo;
-    let mut client_options = ClientOptions::parse(util::string_to_static_str(mongo.addr)).await?;
+    let config = op_config.take().unwrap();
+    let mongo = config.clone().mongo;
+    let client_options = ClientOptions::parse(util::string_to_static_str(mongo.addr)).await?;
     let client = Client::with_options(client_options)?;
     Ok(client)
+}
+
+pub fn init_log(){
+    log4rs::init_file("log4rs.yaml", Default::default()).unwrap();
+    info!("init log");
 }

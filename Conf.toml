@@ -10,4 +10,4 @@
     protocol = "smtp"
 [ip]
     localhost = "localhost:9527"
-    remote = "10.14.99.7:8959"
+    server = "localhost:8959"
