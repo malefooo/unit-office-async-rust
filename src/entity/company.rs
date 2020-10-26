@@ -3,7 +3,7 @@ use mongodb::{
     bson::{doc, Bson, document},
 };
 
-#[derive(Deserialize,Debug)]
+#[derive(Deserialize,Debug,Clone)]
 pub struct Company {
     pub _id:Option<String>,
     pub name:Option<String>,
